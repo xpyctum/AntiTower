@@ -21,7 +21,7 @@ class AntiTower extends PluginBase{
 		$this->saveResource("config.yml");
 		$blocks = $this->getConfig()->get("max-blocks");
 		if(!is_numeric($blocks)){
-			$this->getConfig()->set("max-blocks") = 5;
+			$this->getConfig()->set("max-blocks")[5];
 		}
 		$this->getServer()->getPluginManager()->registerEvents(new PlaceBlockListener($this), $this);
 	}

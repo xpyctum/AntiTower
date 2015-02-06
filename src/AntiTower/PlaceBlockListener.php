@@ -28,7 +28,7 @@ class PlaceBlockListener implements Listener{
 			$x = $e->getBlock()->getX(); $y = $e->getBlock()->getY(); $z = $e->getBlock()->getZ();
 			if(!isset($this->places[$user])){
 				$this->places[$user] = array("uses" => 1, "id" => $id, "Loc" => new Vector3($x,$y,$z));
-			}else{
+			}else if(!$e->getPlayer()->hasPermission("antitower.admin")){
 				$max = $this->plugin->getConfig()->get("max-blocks");
 				$lastid = $this->places[$user]["id"];
 				$uses = $this->places[$user]["uses"];

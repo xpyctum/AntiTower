@@ -31,10 +31,22 @@ class PlaceBlockListener implements Listener{
 				$uses = $this->places[$user]["uses"];
 				if($id == $lastid){
 					if(!$uses > $max){
+						$e->getPlayer()->sendMessage("Now, you can't build towers!");
+						$level = $e->getLevel();
+						$i = 1;
+						while($i <= $max){
+							$x = $e->getX(); $y = $e->getY(); $z = $e->getZ();
+							$pos = new Vector3($x, $y-$i, $z);
+							$block = new Air();
+							$level->setBlock($pos, $block);
+							$i++;
+						}
 						$e->setCancelled();
 					}else{
 						$this->places[$user]["uses"]+1;
 					}
+				}else{
+					unset($this->places[$user]);
 				}
 			}
         }

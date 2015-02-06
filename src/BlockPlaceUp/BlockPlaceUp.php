@@ -18,6 +18,7 @@ class BlockPlaceUp extends PluginBase{
 	}
 	public function onEnable()
 	{
+		$this->saveResource("config.yml");
 		$blocks = $this->getConfig()->get("max-blocks");
 		if(!is_numeric($blocks)){
 			$this->getServer()->shutdown();

@@ -26,7 +26,16 @@ class PlaceBlockListener implements Listener{
 			if(!isset($this->places[$user])){
 				$this->places[$user] = array("uses" => 1, "id" => $id);
 			}else{
-				
+				$max = $this->plugin->getConfig()->get("max-blocks");
+				$lastid = $this->places[$user]["id"];
+				$uses = $this->places[$user]["uses"];
+				if($id == $lastid){
+					if(!$uses > $max){
+						$e->setCancelled();
+					}else{
+						$this->places[$user]["uses"]+1;
+					}
+				}
 			}
         }
     }

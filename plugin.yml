@@ -1,0 +1,10 @@
+name: BlockPlaceUp
+main: BlockPlaceUp\BlockPlaceUp
+version: 1.0
+author: xpyctum
+api: [1.0.0]
+load: POSTWORLD
+permissions:
+ blockplaceup.admin:
+  default: op
+  description: Allow build towers

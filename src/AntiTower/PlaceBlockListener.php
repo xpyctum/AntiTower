@@ -39,7 +39,7 @@ class PlaceBlockListener implements Listener{
 				// $this->plugin->getLogger()->notice(var_dump($lastY));
 				// $this->plugin->getLogger()->notice(var_dump($y-1));
 				if($lastY == $y-1){
-					$this->plugin->getLogger()->notice(var_dump($lastY));
+					//$this->plugin->getLogger()->notice(var_dump($lastY));
 					if($id == $lastid){
 						if($uses == $max){
 							$e->getPlayer()->sendMessage("[AntiTower] Now, you can't build towers!");

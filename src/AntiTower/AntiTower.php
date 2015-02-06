@@ -1,5 +1,5 @@
 <?php
-namespace BlockPlaceUp;
+namespace AntiTower;
 
 use pocketmine\utils\Config;
 use pocketmine\plugin\PluginBase;
@@ -8,7 +8,7 @@ use pocketmine\Server;
 
 
 
-class BlockPlaceUp extends PluginBase{
+class AntiTower extends PluginBase{
 
 	private $config, $plugin;
 	

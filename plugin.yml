@@ -1,10 +1,10 @@
-name: BlockPlaceUp
-main: BlockPlaceUp\BlockPlaceUp
+name: AntiTower
+main: AntiTower\AntiTower
 version: 1.0
 author: xpyctum
 api: [1.0.0]
 load: POSTWORLD
 permissions:
- blockplaceup.admin:
+ antitower.admin:
   default: op
   description: Allow build towers

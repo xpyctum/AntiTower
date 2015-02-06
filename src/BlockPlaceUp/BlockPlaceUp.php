@@ -6,9 +6,11 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\Server;
 
+
+
 class BlockPlaceUp extends PluginBase{
 
-	private $config, $plugin, $factionsPro;
+	private $config, $plugin;
 	
 	public function onLoad()
 	{

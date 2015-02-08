@@ -1,16 +1,16 @@
 <?php
 namespace AntiTower;
 
-use pocketmine\utils\Config;
+use pocketmine\plugin\Plugin;
 use pocketmine\plugin\PluginBase;
-use pocketmine\event\Listener;
-use pocketmine\Server;
-
+use pocketmine\utils\Config;
 
 
 class AntiTower extends PluginBase{
 
-	private $config, $plugin;
+	private $config;
+    /* @var $plugin */
+    private $plugin;
 	
 	public function onLoad()
 	{
@@ -21,7 +21,9 @@ class AntiTower extends PluginBase{
 		$this->saveResource("config.yml");
 		$blocks = $this->getConfig()->get("max-blocks");
 		if(!is_numeric($blocks)){
-			$this->getConfig()->set("max-blocks")[5];
+            if (!empty($this->getConfig()->get("max-blocks")[5])) {
+                $this->getConfig()->set("max-blocks")[5];
+            }
 		}
 		$this->getServer()->getPluginManager()->registerEvents(new PlaceBlockListener($this), $this);
 	}
@@ -29,4 +31,20 @@ class AntiTower extends PluginBase{
 	public function onDisable(){
 		
 	}
+
+    /**
+     * @return Plugin
+     */
+    public function getPlugin()
+    {
+        return $this->plugin;
+    }
+
+    /**
+     * @return Config
+     */
+    public function getConfig()
+    {
+        return $this->config;
+    }
 }

@@ -12,16 +12,15 @@ class AntiTower extends PluginBase{
     /* @var $plugin */
     private $plugin;
 	
-	public function onLoad()
-	{
+	public function onLoad(){
 		$this->saveDefaultConfig();
 	}
-	public function onEnable()
-	{
+
+	public function onEnable(){
 		$this->saveResource("config.yml");
 		$blocks = $this->getConfig()->get("max-blocks");
-		if(!is_numeric($blocks)){
-            if (!empty($this->getConfig()->get("max-blocks")[5])) {
+		if(is_numeric($blocks)){
+            if (empty($this->getConfig()->get("max-blocks")[5])) {
                 $this->getConfig()->set("max-blocks")[5];
             }
 		}

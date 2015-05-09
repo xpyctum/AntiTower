@@ -4,6 +4,7 @@ namespace AntiTower;
 use pocketmine\plugin\Plugin;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
+use pocketmine\utils\TextFormat;
 
 
 class AntiTower extends PluginBase{
@@ -16,34 +17,27 @@ class AntiTower extends PluginBase{
 		$this->saveDefaultConfig();
 	}
 
-	public function onEnable(){
+    public function onEnable(){
 		$this->saveResource("config.yml");
-		$blocks = $this->getConfig()->get("max-blocks");
-		if(is_numeric($blocks)){
-            if (empty($this->getConfig()->get("max-blocks")[5])) {
-                $this->getConfig()->set("max-blocks")[5];
-            }
-		}
 		$this->getServer()->getPluginManager()->registerEvents(new PlaceBlockListener($this), $this);
+        $this->getLogger()->info(TextFormat::GREEN."- AntiTower Loaded !");
 	}
 	
 	public function onDisable(){
-		
+        $this->getLogger()->info(TextFormat::RED."- AntiTower Disabled !");
 	}
 
     /**
      * @return Plugin
      */
-    public function getPlugin()
-    {
+    public function getPlugin(){
         return $this->plugin;
     }
 
     /**
      * @return Config
      */
-    public function getConfig()
-    {
+    public function getConfig(){
         return $this->config;
     }
 }

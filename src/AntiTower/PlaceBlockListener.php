@@ -4,7 +4,7 @@ namespace AntiTower;
 use pocketmine\event\Listener;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\math\Vector3;
-use pocketmine\block\Air;
+use pocketmine\block\Block;
 use pocketmine\utils\TextFormat;
 
 class PlaceBlockListener implements Listener{
@@ -25,7 +25,7 @@ class PlaceBlockListener implements Listener{
 	public function BlockPlaceEvent(BlockPlaceEvent $e){
 		if(!$e->isCancelled()){
             		$id = $e->getBlock()->getID();
-			$user = $e->getPlayer()->getDisplayName();
+			$user = $e->getPlayer()->getName();
 			$x = $e->getBlock()->getX(); $y = $e->getBlock()->getY(); $z = $e->getBlock()->getZ();
 			if(!isset($this->places[$user])){
                 		/** @array Vector3 */
@@ -46,7 +46,7 @@ class PlaceBlockListener implements Listener{
                                     					$pos = new Vector3($x, $y - $i, $z);
                                     					$outaded = $level->getBlock($pos);
                                     					$e->getPlayer()->getInventory()->addItem($outaded);
-                                    					$block = new Air();
+                                    					$block = Block::get(0);
                                    					$level->setBlock($pos, $block);
                                 				}
                                 				$e->setCancelled();
@@ -54,7 +54,7 @@ class PlaceBlockListener implements Listener{
                             				} else {
                                 				$this->places[$user]["uses"] = $this->places[$user]["uses"] + 1;
                                 				$this->places[$user]["Loc"] = new Vector3($x, $y, $z);
-                                				/* $this->plugin->getLogger()->notice(var_dump($this->places[$user]["uses"])); */
+                                				
                             				}
                        				} else {
                             				unset($this->places[$user]);

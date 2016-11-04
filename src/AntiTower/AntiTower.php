@@ -8,36 +8,15 @@ use pocketmine\utils\TextFormat;
 
 
 class AntiTower extends PluginBase{
-
-	private $config;
-    /* @var $plugin */
-    private $plugin;
 	
-	public function onLoad(){
-		$this->saveDefaultConfig();
-	}
-
-    public function onEnable(){
+    	public function onEnable(){
 		$this->saveResource("config.yml");
 		$this->getServer()->getPluginManager()->registerEvents(new PlaceBlockListener($this), $this);
-        $this->getLogger()->info(TextFormat::GREEN."- AntiTower Loaded !");
+        	$this->getLogger()->info(TextFormat::GREEN."- AntiTower Loaded !");
 	}
 	
 	public function onDisable(){
-        $this->getLogger()->info(TextFormat::RED."- AntiTower Disabled !");
+        	$this->getLogger()->info(TextFormat::RED."- AntiTower Disabled !");
 	}
-
-    /**
-     * @return Plugin
-     */
-    public function getPlugin(){
-        return $this->plugin;
-    }
-
-    /**
-     * @return Config
-     */
-    public function getConfig(){
-        return $this->config;
-    }
+	
 }

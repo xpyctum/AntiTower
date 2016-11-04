@@ -12,7 +12,7 @@ class PlaceBlockListener implements Listener{
 	
 	protected $plugin;
 	
-	private $places = []
+	private $places = [];
 	
 	public function __construct(AntiTower $plugin){
 		$this->plugin = $plugin;

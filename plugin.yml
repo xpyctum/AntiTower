@@ -1,8 +1,8 @@
 name: AntiTower
 main: AntiTower\AntiTower
-version: 1.0
+version: 1.0.1
 author: xpyctum
-api: [1.0.0]
+api: [2.0.0]
 load: POSTWORLD
 permissions:
  antitower.admin:
